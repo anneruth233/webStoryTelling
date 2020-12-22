@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>keyframe testing</title>
+    <style>
+        .slide1 {
+            animation: slide1 10s .10s infinite linear forwards;
+        }
+
+        .slide2 {
+            animation: slide2 10s .10s infinite linear forwards;
+        }
+
+        .slide3 {
+            animation: slide3 10s .10s infinite linear forwards;
+        }
+
+
+        @keyframes slide1 {
+            0% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes slide2 {
+            0% {
+                opacity: 1;
+                transform: translateX(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+        }
+
+        @keyframes slide3 {
+            0% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%)
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid text-center" style="min-height:1000px;background-color:burlywood">
+        <h1>清明上河圖</h1>
+    </div>
+    
+    <div class="container-fluid " style="max-height:1000px;">
+        <div>
+            <img class="slideanimate1" src="assets/5.gif" style="position:absolute;width:200%;">
+            <img class="slideanimate2" src="assets/5.gif" style="position:absolute;width:200%;">
+        </div>
+    </div>
+    
+    <div class="container-fluid sticky-bottom text-center" style="background-color:burlywood;color:white;min-height: 1000px"></div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $(window).scroll(function() {
+                var winTop = $(window).scrollTop();
+                var winh = $(window).height();
+
+                $(".slideanimate1").each(function() {
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.8) {
+                        $(this).addClass("slide1");
+                    }
+                });
+                $(".slideanimate2").each(function() {
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.8) {
+                        $(this).addClass("slide2");
+                    }
+                });
+                $(".slideanimate3").each(function() {
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.8) {
+                        $(this).addClass("slide3");
+                    }
+                });
+
+            });
+        });
+    </script>
+</body>
+
+</html>
